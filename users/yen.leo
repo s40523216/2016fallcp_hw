@@ -170,7 +170,7 @@
 <v t="yen.20161105200835.1"><vh>@edit 20161105.md</vh></v>
 <v t="leo.20161114144450.1"><vh>@edit 20161114.md</vh></v>
 <v t="leo.20161128001118.1"><vh>@edit 20161121.md</vh></v>
-<v t="leo.20161205151113.1"><vh>@edit 20161205.md</vh></v>
+<v t="leo.20161205152002.1"><vh>@edit 20161205.md</vh></v>
 </v>
 </v>
 </v>
@@ -324,10 +324,10 @@ print("hello")
 ### 虎科大機械設計工程系
 
 &lt;small&gt;
-Created by [s40523236](http://chiamingyen.github.io/kmolab/blog/)
+Created by [s40523216](http://chiamingyen.github.io/kmolab/blog/)
 &lt;/small&gt;
 
-[s40523236](blog/index.html)
+[s40523216](blog/index.html)
 
 </t>
 <t tx="amd.20161004104641.1">&lt;section data-markdown&gt;
@@ -500,13 +500,13 @@ Diff...
   ### 虎科大機械設計工程系
   
   &lt;small&gt;
-- Created by [s40523239](http://chiamingyen.github.io/kmolab/blog/)
+- Created by [s40523216](http://chiamingyen.github.io/kmolab/blog/)
 ?             ^^^^^^^^^
 + Created by [KMOLab](http://chiamingyen.github.io/kmolab/blog/)
 ?             ^^^^^^
   &lt;/small&gt;
   
-- [s40523239](blog/index.html)
+- [s40523216](blog/index.html)
 ?  ^^^^^^^^^
 + [blog](blog/index.html)
 ?  ^^^^
