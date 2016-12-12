@@ -171,6 +171,7 @@
 <v t="leo.20161114144450.1"><vh>@edit 20161114.md</vh></v>
 <v t="leo.20161128001118.1"><vh>@edit 20161121.md</vh></v>
 <v t="leo.20161205152002.1"><vh>@edit 20161205.md</vh></v>
+<v t="leo.20161212141542.1"><vh>@edit 20161212.md</vh></v>
 </v>
 </v>
 </v>
@@ -190,12 +191,13 @@
 <v t="yen.20161105200154.1"><vh>@edit agroup.txt</vh></v>
 <v t="yen.20161105200234.1"><vh>@edit bgroup.txt</vh></v>
 </v>
-<v t="leo.20161127215702.2" a="E"><vh>Recovered Nodes</vh>
+<v t="leo.20161127215702.2"><vh>Recovered Nodes</vh>
 <v t="leo.20161127215702.3"><vh>Recovered node "封面投影片內容" from @clean index.html</vh>
 <v t="leo.20161127215702.4"><vh>old:封面投影片內容</vh></v>
 <v t="leo.20161127215702.5"><vh>new:封面投影片內容</vh></v>
 </v>
 </v>
+<v t="leo.20161212151725.1"><vh>@button https server</vh></v>
 </vnodes>
 <tnodes>
 <t tx="amd.20151215170031.1"></t>
@@ -534,6 +536,28 @@ Created by [s40523239](http://chiamingyen.github.io/kmolab/blog/)
 [s40523239](blog/index.html)
 
 </t>
+<t tx="leo.20161212151725.1">@language python
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 6443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()</t>
 <t tx="yen.20161011114704.1">&lt;section data-markdown&gt;
     &lt;script type="text/template"&gt;
 @others
