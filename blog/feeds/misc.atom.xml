@@ -18,29 +18,23 @@ brython(1);
 
 &lt;!-- 以下實際利用  Brython 畫圖 --&gt;
 
-&lt;div id="con"&gt;&lt;/div&gt;
-
 &lt;script type="text/python3"&gt;
 from browser import alert
-from browser import document
-from browser import html
 import random
-#print("test")
-#alert("test")
-con1=document["con"]
-標準答案=random.randint(1,2)
-con1&lt;=str(標準答案)
-'''
-try:
-    for i in range(1):
-        #con1&lt;="test"+"&lt;br/&gt;"
-        yourInput=int(input("請輸入一個整數!"))
-        #con1&lt;="test"+html.BR()
-        output=yourInput+1
-        con1&lt;="你輸入的整數加上1之後,為"+str(output)
-except:
-   con1&lt;="拜託請輸入整數!"
-'''
+
+ans = random.randint(1, 100)
+
+a_in = int(input("輸入整數:"))
+guess = 1
+
+while ans != a_in:
+    if a_in &lt; ans:
+        a_in = int(input("too small"))
+    else:
+        a_in = int(input("too big"))
+    guess += 1
+
+alert("恭喜答對 ,一共猜了" + (str(guess)) + "次")
 &lt;/script&gt;</summary><category term="每週練習"></category></entry><entry><title>w14練習</title><link href="./w14lian-xi.html" rel="alternate"></link><published>2016-12-12T14:35:00+08:00</published><updated>2016-12-12T14:35:00+08:00</updated><author><name>s40523216</name></author><id>tag:,2016-12-12:./w14lian-xi.html</id><summary type="html">&lt;p&gt;以下為第十四週開始的程式練習,要利用&lt;a href="http://mde.tw/2016fallcp/course/Python3Programs.txt"&gt;http://mde.tw/2016fallcp/course/Python3Programs.txt&lt;/a&gt;整理Brython的用法&lt;/p&gt;
 
 
