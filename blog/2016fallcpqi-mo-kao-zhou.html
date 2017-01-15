@@ -168,19 +168,18 @@ init_mathjax();
 
 <link rel="canonical" href="./2016fallcpqi-mo-kao-zhou.html">
 
-        <meta name="author" content="s40523216" />
-        <meta name="keywords" content="每週練習" />
-        <meta name="description" content="期末考週" />
+        <meta name="author" content="40523216" />
+        <meta name="keywords" content="Brython" />
 
         <meta property="og:site_name" content="2016Fall CPA 課程網誌 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="2016fallcp期末考週"/>
         <meta property="og:url" content="./2016fallcpqi-mo-kao-zhou.html"/>
-        <meta property="og:description" content="期末考週"/>
+        <meta property="og:description" content=""/>
         <meta property="article:published_time" content="2017-01-09" />
-            <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="每週練習" />
-            <meta property="article:author" content="s40523216" />
+            <meta property="article:section" content="Course" />
+            <meta property="article:tag" content="Brython" />
+            <meta property="article:author" content="40523216" />
 
 
     <!-- Bootstrap -->
@@ -262,6 +261,9 @@ init_mathjax();
                              About
                           </a></li>
                         <li class="active">
+                            <a href="./category/course.html">Course</a>
+                        </li>
+                        <li >
                             <a href="./category/misc.html">Misc</a>
                         </li>
             </ul>
@@ -300,24 +302,28 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-09T13:35:00+08:00"> 週一 09 一月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-01-09T14:35:00+08:00"> 週一 09 一月 2017</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="./author/s40523216.html"><i class="fa fa-user"></i> s40523216</a>
+            <a href="./author/40523216.html"><i class="fa fa-user"></i> 40523216</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/mei-zhou-lian-xi.html">每週練習</a>
+	<a href="./tag/brython.html">Brython</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>期末考週</p>
+                <!-- PELICAN_END_SUMMARY -->
 
-
+<p>https://vimeo.com/199517905</p>
+<p>w17週心得與程式範例:</p>
+<p>放假~</p>
+<p>w16週心得與程式範例:</p>
 <!-- 導入 Brython 標準程式庫 -->
 
-<script type="text/javascript" src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
+<script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
 </script>
 
 <!-- 啟動 Brython -->
@@ -328,77 +334,106 @@ brython(1);
 }
 </script>
 
-<p>W17週心得與程式範例:</p>
-<p>W16週心得與程式範例:</p>
-<p>猜電腦所選定的某一範圍中的整數</p>
-<div id="con"></div>
+<!-- 以下可以執行  Brython 程式 -->
+
+<div id="id3"></div>
 
 <script type="text/python3">
-from browser import alert
 from browser import document
 from browser import html
 import random
 
-
-
-def b2(e):
-    alert("按確定")  
+id3 = document["id3"]
+def guess(ev):
+    # 清除 id3 中的內容
+    id3.clear()
+    id3 <= "開始玩猜數字遊戲" + html.BR()
     標準答案 = random.randint(1, 100)
-    你猜的數字 = int(input("請輸入您所猜的整數:"))
+    你猜的數字 = int(input("請輸入您所猜整數:"))
     猜測次數 = 1
-
     while 標準答案 != 你猜的數字:
-        if 標準答案 < 你猜的數字:   
-            print(你猜的數字,"太大了，再猜一次 :)加油")
-            con1<=str(你猜的數字)
+        if 標準答案 < 你猜的數字:
+            #print("太大了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 <= "猜第" + str(猜測次數) + "次, 太大了，再猜一次 :)加油" + html.BR()
         else:
-            print(你猜的數字,"太小了，再猜一次 :)加油")
-        你猜的數字 = int(input("請輸入您所猜的整數:"))
-        猜測次數 += 1       
-    print("猜對了！總共猜了", 猜測次數, "次")
-document["b2"].bind("click",b2)
+            #print("太小了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 <= "猜第" + str(猜測次數) + "次, 太小了，再猜一次 :)加油" + html.BR()
+        你猜的數字 = int(input("請輸入您所猜整數:"))
+        猜測次數 += 1
 
+    #print("猜對了！總共猜了", 猜測次數, "次")
+    id3 <= "猜對了！答案為" + str(標準答案) + ", 總共猜了" + str(猜測次數) + "次"
+
+document["but3"].bind("click", guess)
 </script>
 
-<p><button id="b2">猜數字</button></p>
-<p>W15週心得與程式範例:
-Leo Editor 的節點 @edit @path @button 的用法到 pelican 轉 .md 檔案成為 blog 網誌, 並加入 Brython 程式導入與執行的方法</p>
-<p>@settings-&gt;設定節點
-@edit-&gt;增新節點
-@button-&gt;按鈕</p>
-<p>移動節點
-ctrl+u 向上移動
-ctrl+d 向下移動
-ctrl+r 向右移動
-ctrl+l 向左移動
-ctrl+i 新增內容
-ctrl+b 執行內容</p>
-<div id="con"></div>
+<p><button id="but3">玩猜數字遊戲</button></p>
+<p>w15週心得與程式範例:</p>
+<!-- 導入 Brython 標準程式庫 -->
+
+<script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
+</script>
+
+<!-- 啟動 Brython -->
+
+<script>
+window.onload=function(){
+brython(1);
+}
+</script>
+
+<!-- 以下可以執行  Brython 程式 -->
 
 <script type="text/python3">
-from browser import document as do
-from browser import html
-c = do["con"]
-def compa(e):
-    your_input = input("請輸入一個整數!")
-    # 如何判斷所輸入的整數比 10 大
-    try:
-        if int(your_input) > 10:
-            c <= "所輸入的整數:" + your_input + "比 10 大" + html.BR()
-        else:
-            c <= "所輸入的整數:" + your_input + "比 10 小" + html.BR()
-    except:
-        c <= "請輸入整數!!" + html.BR()
+from browser import document
+from browser import alert
 
-#print("test")
-'''
-for i in range(5):
-    c <= "test" + html.BR()
-'''
-do["b1"].bind("click", compa)
+def get_input(ev):
+    the_input= input("請輸入")
+    alert("輸入為:"+str(the_input))
+
+document['ch01'].bind('click',get_input)
 </script>
 
-<p><button id="b1">compa</button></p>
+<p><button id="ch01">取輸入後, 列印出來</button></p>
+<pre class="brush: python">
+
+def get_input(ev):
+    the_input= input("請輸入")
+    alert("輸入為:"+str(the_input))
+
+document['ch01'].bind('click',get_input)
+</pre>
+
+</script>
+
+<div id="container"></div>
+
+<script type="text/python3">
+from browser import document as doc
+from browser import html
+# 利用 document 根據 div 標註 id 設為 container 變數
+container = doc['container']
+
+# 因為此函式與滑鼠互動, 需要 event 當作輸入
+def numPrint(ev):
+    mystring = ""
+    num = input("請輸入重複執行次數:")
+    #for i in range(1, 11):
+    for i in range(1, int(num)+1):
+        mystring += str(i) + ": hello mde" + html.BR()
+    container <= mystring
+
+# 與 id 為 'w13' 對應的 button 綁定, 且滑鼠 click 後, 呼叫 numPrint 函式執行
+doc['w13'].bind('click',numPrint)
+</script>
+
+<p><button id="w13">取重複執行次數後, 列印出來</button></p>
             </div>
             <!-- /.entry-content -->
         </article>
@@ -443,6 +478,11 @@ do["b1"].bind("click", compa)
 
             <li class="list-group-item"><a href="./categories.html"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                 <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="./category/course.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Course
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="./category/misc.html">
                             <i class="fa fa-folder-open fa-lg"></i> Misc
